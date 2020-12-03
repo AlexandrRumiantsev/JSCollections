@@ -7,18 +7,39 @@ document.addEventListener("DOMContentLoaded", () => {
 	  mutations.forEach(function(mutation) {
 	  	var shareBox = target.querySelector('.b-meta.row .social-share')
 	  	if(shareBox){
-	  		shareBox.querySelector('a.social-share__button--fb').onclick = function(){
+
+	  		var cloneFB = shareBox.querySelector('a.social-share__button--fb').cloneNode(true);
+	  		shareBox.querySelector('a.social-share__button--fb').remove();
+	  		cloneFB.onclick = function(e){
+	  			e.preventDefault();
 	  			window.open(this.href, "Popup", "width=600,height=400")
 	  		}
-	  		shareBox.querySelector('a.social-share__button--tw').onclick = function(){
+	  		shareBox.appendChild(cloneFB);
+
+
+	  		var cloneTW = shareBox.querySelector('a.social-share__button--tw').cloneNode(true);
+	  		shareBox.querySelector('a.social-share__button--tw').remove();
+	  		cloneTW.onclick = function(e){
+	  			e.preventDefault();
 	  			window.open(this.href, "Popup", "width=600,height=400")
 	  		}
-	  		shareBox.querySelector('a.social-share__button--tg').onclick = function(){
+	  		shareBox.appendChild(cloneTW);
+
+	  		var cloneTG = shareBox.querySelector('a.social-share__button--tg').cloneNode(true);
+	  		shareBox.querySelector('a.social-share__button--tg').remove();
+	  		cloneTG.onclick = function(e){
+	  			e.preventDefault();
 	  			window.open(this.href, "Popup", "width=600,height=400")
 	  		}
-	  		shareBox.querySelector('a.social-share__button--vk').onclick = function(){
+	  		shareBox.appendChild(cloneTG);
+
+			var cloneVK= shareBox.querySelector('a.social-share__button--vk').cloneNode(true);
+			shareBox.querySelector('a.social-share__button--vk').remove();
+	  		cloneVK.onclick = function(e){
+	  			e.preventDefault();
 	  			window.open(this.href, "Popup", "width=600,height=400")
 	  		}
+	  		shareBox.appendChild(cloneVK);
 	  	}
 	  });    
 	});
